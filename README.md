@@ -26,5 +26,9 @@ FitPlan is a personalized fitness app that generates workout routines based on y
 
 2. Go to local host to visit the website (http://127.0.0.1:5000/)
 
+# Contact 
+
+For any inquiries or issues, contact [Shafay Joyo] at [shafay11august@gmail.com].
+
 
 
