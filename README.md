@@ -19,7 +19,12 @@ FitPlan is a personalized fitness app that generates workout routines based on y
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/msj2162/fitplan.git
-   cd fitplan
-2. Would require you to have a open ai key
+   git clone https://github.com/joyo11/fitplan.git
+   cd Hw11
+
+   python app.py
+
+2. Go to local host to visit the website (http://127.0.0.1:5000/)
+
+
 
