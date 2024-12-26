@@ -1,0 +1,65 @@
+/* Existing Body Styling */
+body {
+  background-color: white;
+  background-image: url('/static/fitness.jpeg');
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  /* Ensure text is visible */
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #007bff;
+}
+
+.navbar-brand img {
+  width: 40px;
+  height: 40px;
+}
+
+/* About Page Styles */
+.about-content {
+  text-align: left;
+  margin: 20px 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.about-content h2 {
+  font-size: 1.8rem;
+  color: #007bff;
+  margin-top: 20px;
+}
+
+.about-content p, .about-content ul {
+  font-size: 1rem;
+  color: #fff; /* White text to contrast against dark background */
+  line-height: 1.6;
+}
+
+.about-content ul {
+  padding-left: 20px;
+}
+
+.about-content ul li {
+  list-style: disc;
+  margin-bottom: 8px;
+}
+
+/* Footer Styles */
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f4f4f9;
+  border-top: 1px solid #ddd;
+}
+
+.footer p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #777;
+  text-align: center;
+}

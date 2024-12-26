@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Plan</title>
+    <style>
+        
+        /* Global reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Full-screen background image */
+        .background {
+            background-image: url('/static/images/fitness.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-links {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar .logo {
+            width: 50px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        /* Main content container */
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-top: 100px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result-container {
+            margin-top: 30px;
+            
+        }
+
+        .result-container p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        p#generatedWorkout{
+            font-size: 20px;  /* Adjust this value to make the text smaller */
+    line-height: 1.4;
+    overflow-y: auto;
+    max-height: 400px; /
+        }
+
+        #workout_type {
+            width: 75%;
+            padding: 12px;
+            font-size: 1.5em;
+            border-radius: 5px;
+            border: 2px solid #007bff;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        
+
+        input, select {
+            padding: 12px;
+            font-size: 1.5em;
+            border-radius: 5px;
+            border: 2px solid #007bff;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin-right: 15px;
+            margin-bottom: 20px;
+            width: 220px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .form-row div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form-row label {
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="navbar">
+        <div class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/workout">Workout Plans</a>
+            <a href="/search">Search</a>
+            <a href="/about">About</a>
+        </div>
+
+
+     <!-- Logo on the right -->
+     <a href="/" class="logo">
+        <img src="/static/images/gym.png" alt="Gym Logo" class="logo">
+    </a>
+
+</div>
+
+    <div class="container">
+        <h1>Generate Your Custom Workout Plan</h1>
+        <p>Fill in the details and we'll generate a workout plan for you.</p>
+        <form id="workoutForm" method="POST" action="/search">
+            <div class="form-row">
+                <div>
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" required min="18" max="99" placeholder="Enter your age">
+                </div>
+                <div>
+                    <label for="weight">Weight (kg)</label>
+                    <input type="number" id="weight" name="weight" required min="30" max="200" placeholder="Enter your weight">
+                </div>
+                <div>
+                    <label for="medical_condition">Specify Medical Conditions</label>
+                    <input type="text" id="medical_condition" name="medical_condition" placeholder="Enter any medical conditions">
+                </div>
+                <div>
+                    <label for="workout_type">Workout Type</label>
+                    <input type="text" id="workout_type" name="workout_type" placeholder="e.g. Cardio, Strength, Flexibility" required>
+                </div>
+                <div>
+                    <label for="dumbbells">Dumbbells Available</label>
+                    <select id="dumbbells" name="dumbbells" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="kettlebells">Kettlebells Available</label>
+                    <select id="kettlebells" name="kettlebells" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="pull_up_bar">Pull-Up Bar Available</label>
+                    <select id="pull_up_bar" name="pull_up_bar" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="bench">Bench Available</label>
+                    <select id="bench" name="bench" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="other">Other Equipment</label>
+                    <input type="text" id="other" name="other" placeholder="Specify other equipment if any">
+                </div>
+                <div>
+                    <label for="goal">Goal</label>
+                    <input type="text" id="goal" name="goal" placeholder="Enter your goal" required>
+                </div>
+                <div>
+                    <label for="workout_time">Workout Time (minutes)</label>
+                    <input type="number" id="workout_time" name="workout_time" required min="10" max="120" placeholder="Enter workout time">
+                </div>
+                <input type="hidden" name="action" value="generate_plan">
+            </div>
+            <button type="submit" name="action" value="generate_plan">Generate Workout Plan</button>
+        </form>
+        
+    
+
+    <!-- Loading Screen -->
+    
+    <div id="resultContainer" style="display:none;">
+        <!-- Dynamic Heading -->
+        <h2 id="resultHeading">Your Generated Workout Plan:</h2>
+        <p id="generatedWorkout"></p>
+    
+        <!-- Action buttons -->
+        <button id="formTipsButton">Get Form Tips</button>
+        <button id="detailedInstructionsButton">Get Detailed Instructions</button>
+        <button id="searchAgainButton">Modify Search</button>
+    </div>
+    
+    <script>
+        const form = document.getElementById('workoutForm');
+        const resultContainer = document.getElementById('resultContainer');
+        const generatedWorkout = document.getElementById('generatedWorkout');
+        const formTipsButton = document.getElementById('formTipsButton');
+        const detailedInstructionsButton = document.getElementById('detailedInstructionsButton');
+        const searchAgainButton = document.getElementById('searchAgainButton');
+        const resultHeading = document.getElementById('resultHeading');
+        function showMachineInput() {
+        const machineSelect = document.getElementById('machine');
+        const machineInput = document.getElementById('machine_input');
+        if (machineSelect.value === 'yes') {
+            machineInput.style.display = 'block'; // Show input for specifying machine
+        } else {
+            machineInput.style.display = 'none'; // Hide the input if "No" is selected
+        }
+    }
+    
+    form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent actual form submission
+    const formData = new FormData(form);
+    const action = formData.get('action');
+
+    // Hide the heading and description when the form is submitted
+    document.querySelector('h1').style.display = 'none';
+    document.querySelector('p').style.display = 'none';
+
+    // Send a POST request via Fetch API
+    fetch('/search', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        form.style.display = 'none'; // Hide form
+        resultContainer.style.display = 'block'; // Show results
+
+        // Display the generated workout plan (with formatted content)
+        if (data.workout_outline) {
+            generatedWorkout.innerHTML = data.workout_outline.replace(/\n/g, '<br>'); // Convert line breaks to <br> tags
+        }
+    })
+    .catch(error => {
+        alert('An error occurred. Please try again.');
+    });
+});
+
+
+    
+        // Event listener for "Get Form Tips" button
+        formTipsButton.addEventListener('click', function() {
+            const formData = new FormData(form);
+            formData.set('action', 'generate_form_tips');
+    
+            // Send a request to fetch form tips
+            fetch('/search', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                resultHeading.textContent = "Form Tips:"; // Change the heading for form tips
+                if (data.form_tips) {
+                    generatedWorkout.textContent = data.form_tips; // Display form tips
+                }
+            })
+            .catch(error => {
+                alert('An error occurred. Please try again.');
+            });
+        });
+    
+        // Event listener for "Get Detailed Instructions" button
+        detailedInstructionsButton.addEventListener('click', function() {
+            const formData = new FormData(form);
+            formData.set('action', 'generate_detailed_instructions');
+    
+            // Send a request to fetch detailed instructions
+            fetch('/search', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                resultHeading.textContent = "Detailed Instructions:"; // Change the heading for detailed instructions
+                if (data.detailed_workout) {
+                    generatedWorkout.textContent = data.detailed_workout; // Display detailed instructions
+                }
+            })
+            .catch(error => {
+                alert('An error occurred. Please try again.');
+            });
+        });
+    
+        // Event listener for "Search Again" button
+        searchAgainButton.addEventListener('click', function() {
+            form.style.display = 'block'; // Show form again
+            resultContainer.style.display = 'none'; // Hide result container
+        });
+    </script>
+</body>
+</html>

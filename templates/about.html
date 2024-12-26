@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - AI Fitness App</title>
+  <style>
+    /* Global Styles */
+    body {
+      background-color: white;
+      background-image: url('/static/images/fitness.jpeg'); /* Add the correct path to your image */
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      height: 100vh; /* Ensure background covers entire screen */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    header h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-top: 50px;
+    }
+
+    /* About Content Styles */
+    .about-content {
+      text-align: left;
+      margin: 20px 0;
+      background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-content h2 {
+      font-size: 2rem;
+      color: #007bff;
+      margin-top: 20px;
+    }
+
+    .about-content p, .about-content ul {
+      font-size: 1.1rem;
+      color: #fff; /* White text for better contrast against dark background */
+      line-height: 1.6;
+    }
+
+    .about-content ul {
+      padding-left: 20px;
+    }
+
+    .about-content ul li {
+      list-style: disc;
+      margin-bottom: 8px;
+    }
+
+    /* Footer Styles */
+    .footer {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #000;
+      border-top: 1px solid rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 5px 0;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.7); /* Transparent background */
+      padding: 15px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-links {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.2em;
+    }
+
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+
+    .navbar .logo {
+      width: 50px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .about-content {
+        padding: 15px;
+      }
+
+      .about-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .about-content p, .about-content ul {
+        font-size: 1rem;
+      }
+
+      .footer {
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar a {
+        font-size: 1em;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .about-content h2 {
+        font-size: 1.3rem;
+      }
+
+      .about-content p, .about-content ul {
+        font-size: 0.9rem;
+      }
+
+      .footer p {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-links">
+      <a href="/">Home</a>
+      <a href="/workout">Workout Plans</a>
+      <a href="/search">Search</a>
+      <a href="/about">About</a>
+    </div>
+    <a href="/" class="logo">
+      <img src="/static/images/gym.png" alt="Gym Logo" class="logo">
+    </a>
+  </div>
+  
+
+  <div class="container">
+    <br>
+    <header>
+      <h1>About Our App</h1>
+    </header>
+    
+    <section class="about-content">
+      <h2>Our Mission</h2>
+      <p>
+        Welcome to our AI-Powered Fitness App! Our mission is to revolutionize your fitness journey by providing 
+        personalized workout plans tailored to your unique needs. Whether you're looking to lose weight, build 
+        muscle, improve flexibility, or boost cardiovascular health, our app leverages cutting-edge artificial 
+        intelligence to create customized plans for every goal.
+      </p>
+
+      <h2>What We Offer</h2>
+      <p>
+        Our app simplifies fitness by offering a variety of workout categories, such as:
+      </p>
+      <ul>
+        <li>Weight Loss Plans</li>
+        <li>Core Strengthening and Abs Workouts</li>
+        <li>Cardio Routines</li>
+        <li>Strength Training</li>
+        <li>Flexibility and Mobility Exercises</li>
+      </ul>
+      <p>
+        With a user-friendly interface and dynamic workout generation, you can stay motivated and track your progress 
+        effortlessly. Our goal is to make fitness accessible, engaging, and effective for everyone!
+      </p>
+
+      <h2>Advanced Features</h2>
+      <p>
+        Our app goes beyond static workout plans by offering:
+      </p>
+      <ul>
+        <li>
+          <strong>Search Workouts:</strong> Easily search for specific exercises or routines that match your fitness goals, 
+          preferences, or time availability.
+        </li>
+        <li>
+          <strong>Customized Plans:</strong> Let our AI generate a personalized fitness plan tailored to your individual 
+          preferences, fitness level, and progress.
+        </li>
+        <li>
+          <strong>Tailored Experience:</strong> Whether you're a beginner or an advanced fitness enthusiast, our app adapts 
+          to your unique requirements, ensuring maximum effectiveness.
+        </li>
+      </ul>
+    </section>
+    
+    <footer class="footer">
+      <p>© 2024 AI Fitness App. All rights reserved.</p>
+      <p>
+        This app and its content are protected by copyright law. Unauthorized duplication or distribution is strictly 
+        prohibited.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

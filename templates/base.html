@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness App</title>
+    <style>
+        /* Global reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Full-screen background image */
+        .background {
+            background-image: url('/static/images/fitness.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent background */
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Navbar Links (Left side) */
+        .navbar-links {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Logo in the navbar (Right side) */
+        .navbar .logo {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+            cursor: pointer;
+        }
+
+        /* Main content container */
+        .container {
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 1; /* Ensures content stays on top */
+            margin-top: 100px; /* Offset content from the navbar */
+        }
+
+        /* Header and button styles */
+        h1 {
+            font-size: 5em;
+            margin-bottom: 20px;
+        }
+    
+        p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Full background image -->
+    <div class="background"></div>
+
+    <!-- Fixed Navbar -->
+    <div class="navbar">
+        <!-- Navbar Links on the left -->
+        <div class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/workout">Workout Plans</a>
+            <a href="/search">Search</a>
+            <a href="/about">About</a>
+        </div>
+
+        <!-- Logo on the right -->
+        <a href="/" class="logo">
+            <img src="/static/images/gym.png" alt="Gym Logo" class="logo">
+        </a>
+    </div>
+
+    <!-- Main content -->
+    <div class="container">
+        <h1>Fit Plan</h1>
+        <h3>AI-Powered Fitness App</h3>
+       
+        <a href="/search"><button>Get Started</button></a>
+    </div>
+
+</body>
+</html>

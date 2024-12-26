@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Plan</title>
+  <style>
+    body {
+      background-image: url('/static/images/fitness.jpeg'); /* Replace with your actual image path */
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+   
+   padding: 30px 20px;
+   background-color: rgba(0, 0, 0, 0.7);
+   padding: 25px;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   z-index: 10;
+
+ }
+
+ .navbar a {
+         color: white;
+         text-decoration: none;
+         margin: 0 15px;
+         font-size: 1.2em;
+     }
+
+     .navbar a:hover {
+         text-decoration: underline;
+     }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: rgba(0, 0, 0, 0.5);
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    li h3 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    li p {
+      margin: 5px 0;
+      font-size: 1rem;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff4500;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #e63946;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/">Home</a>
+    <a href="/workout">Workout Plans</a>
+    <a href="/search">Search</a>
+    <a href="/about">About</a>
+  </nav>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+  <div class="container">
+    <h1>{{ type | capitalize }} Workouts</h1>
+    <p>Your selected experience level: <strong>{{ experience | capitalize }}</strong></p>
+    <ul>
+      {% for workout in workouts %}
+        <li>
+          <h3>{{ workout.exercise }}</h3>
+          <p>{{ workout[experience] }}</p>
+          <p>Suggested Equipment: 
+            {% if 'dumbbell' in workout.exercise.lower() %}
+              Dumbbells
+            {% elif 'yoga' in workout.exercise.lower() %}
+              Yoga Mat
+            {% elif 'running' in workout.exercise.lower() %}
+              Running Shoes
+            {% elif 'cycling' in workout.exercise.lower() %}
+              Bicycle
+            {% else %}
+              Bodyweight or basic gym equipment
+            {% endif %}
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <a href="/workout" class="back-btn">Back to Workouts</a>
+</div>
+  </div>
+</body>
+</html>

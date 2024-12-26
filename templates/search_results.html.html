@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        /* Same styles or modify accordingly */
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="navbar">
+        <div class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/workout">Workout</a>
+            <a href="/search">Search</a>
+            <a href="/about">About</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Your Custom Workout Plan</h1>
+
+        <div class="result-container">
+            <!-- Display results here -->
+            <h2>Workout Plan:</h2>
+            <p>Gender: {{ gender }}</p>
+            <p>Age: {{ age }}</p>
+            <p>Weight: {{ weight }}</p>
+            <p>Workout Type: {{ workout_type }}</p>
+            <p>Dumbbells Available: {{ dumbbells }}</p>
+            <p>Goal: {{ goal }}</p>
+            <p>Workout Time: {{ workout_time }} minutes</p>
+
+            <h3>Generated Plan:</h3>
+            <pre>{{ workout_plan }}</pre>
+        </div>
+    </div>
+</body>
+</html>
