@@ -58,3 +58,6 @@ For any inquiries or issues, contact **Shafay Joyo** at [shafay11august@gmail.co
 ---
 
 FitPlan empowers you to achieve your fitness goals with tailored routines and effective tracking. Start your fitness journey today!
+
+## License
+Copyright (c) 2025 Mohammad Shafay Joyo
