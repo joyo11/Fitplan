@@ -119,7 +119,7 @@ def workout():
 def workout_plan():
     workout_type = request.args.get('type', 'default')
     experience = request.args.get('experience', 'beginner')  # Get user's experience level, default is beginner
-
+    
     # Define workouts and recommendations for each experience level
     workouts = {
 'upper_body': [
