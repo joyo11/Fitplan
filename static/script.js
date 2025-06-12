@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     workoutInput.addEventListener("input", () => {
       const query = workoutInput.value.toLowerCase();
       suggestionsDiv.innerHTML = "";
-  
+        
       if (query) {
         suggestions
           .filter(suggestion => suggestion.toLowerCase().includes(query))
