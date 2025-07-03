@@ -16,7 +16,7 @@ def about():
 @app.route("/search", methods=["GET", "POST"])
 def generate_workout_plan():
     if request.method == "POST":
-        # Extract form data
+        # Extract form the data
         gender = request.form.get("gender")
         age = request.form.get("age")
         weight = request.form.get("weight")
