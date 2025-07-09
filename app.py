@@ -3,7 +3,6 @@ import openai
 
 app = Flask(__name__)
 openai.api_key = "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"
-
 @app.route("/")
 def index():
     return render_template("index.html")
